@@ -227,7 +227,6 @@ export default function Home() {
                     <ListItemText primary="Home" />
                   </ListItem>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="#about"
@@ -235,7 +234,6 @@ export default function Home() {
                     <ListItemText primary="About" />
                   </ListItem>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="#working"
@@ -243,7 +241,6 @@ export default function Home() {
                     <ListItemText primary="Working" />
                   </ListItem>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="/chat"
