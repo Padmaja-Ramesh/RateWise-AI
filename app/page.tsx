@@ -1,113 +1,584 @@
+"use client";
+
+import { useState } from "react";
+import {
+  Typography,
+  Button,
+  Grid,
+  AppBar,
+  Toolbar,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
+import Link from "next/link";
+import { styled } from "@mui/system";
+import { Linkedin, Github, Mail, Menu } from "lucide-react";
+import "@fontsource/oswald/200.css";
+import "@fontsource/oswald/400.css";
+import "@fontsource/oswald/700.css";
 import Image from "next/image";
 
+const Navbar = styled(AppBar)({
+  backgroundColor: "#2C3E50",
+  width: "100%",
+  margin: 0,
+  padding: 0,
+  fontFamily: "'Oswald', sans-serif",
+});
+
+const HeroSection = styled(Box)({
+  width: "100%",
+  height: "100vh",
+  backgroundColor: "#34495E",
+  color: "#FFFFFF",
+  textAlign: "center",
+  margin: 0,
+  boxSizing: "border-box",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  fontFamily: "'Oswald', sans-serif",
+});
+
+const AboutSection = styled(Box)({
+  padding: "50px",
+  boxSizing: "border-box",
+});
+
+const AboutContent = styled(Box)({
+  textAlign: "left",
+});
+
+const AboutImage = styled("img")({
+  width: "100%",
+  height: "auto",
+});
+
+const HowItWorksSection = styled(Box)({
+  backgroundColor: "#ECF0F1",
+  padding: "50px 0",
+  textAlign: "center",
+  width: "100%",
+  margin: 0,
+  boxSizing: "border-box",
+});
+
+const CardContainer = styled(Box)({
+  perspective: "1000px",
+  margin: "20px",
+  cursor: "pointer",
+  width: "300px",
+  height: "200px",
+  position: "relative",
+});
+
+const Card = styled(Box)({
+  width: "100%",
+  height: "100%",
+  position: "relative",
+  transformStyle: "preserve-3d",
+  transition: "transform 0.6s",
+  "&:hover": {
+    transform: "rotateY(180deg)",
+  },
+});
+
+const CardSide = styled(Box)({
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  backfaceVisibility: "hidden",
+  borderRadius: "10px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+});
+
+const CardFront = styled(CardSide)({
+  backgroundColor: "#2C3E50",
+  color: "white",
+});
+
+const CardBack = styled(CardSide)({
+  backgroundColor: "#DEA204",
+  color: "white",
+  transform: "rotateY(180deg)",
+});
+
+const NumberCircle = styled(Box)({
+  width: "40px",
+  height: "40px",
+  backgroundColor: "white",
+  color: "#2C3E50",
+  borderRadius: "50%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  marginBottom: "10px",
+});
+
+const Footer = styled(Box)({
+  backgroundColor: "#2C3E50",
+  color: "white",
+  padding: "24px 30px",
+  textAlign: "center",
+  width: "100%",
+  boxSizing: "border-box",
+});
+
+const FooterLink = styled("a")({
+  color: "#2C3E50",
+  backgroundColor: "white",
+  padding: "8px",
+  borderRadius: "50%",
+  display: "inline-block",
+  transition: "background-color 0.3s",
+  "&:hover": {
+    backgroundColor: "#DEA204",
+  },
+});
+
 export default function Home() {
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* Navbar */}
+      <Navbar position="fixed" sx={{ width: "100%" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: isMobile ? "0 6px" : "0 40px",
+          }}
+        >
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              fontFamily: "'Oswald', sans-serif",
+              fontWeight: "500",
+              color: "#F1B22A",
+              display: "flex",
+              alignItems: "center", // Aligns image and text vertically centered
+            }}
           >
-            By{" "}
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
+              src="/image/title.png"
+              alt="RateWise AI Icon"
+              width={24}
               height={24}
-              priority
+              style={{ marginRight: "8px" }} // Adds space between the icon and text
             />
-          </a>
-        </div>
-      </div>
+            RateWise AI
+          </Typography>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          {isMobile ? (
+            <>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={toggleMenu}
+                sx={{
+                  padding: "20px",
+                }}
+              >
+                <Menu />
+              </IconButton>
+              <Drawer
+                anchor="right"
+                open={menuOpen}
+                onClose={closeMenu}
+                sx={{
+                  "& .MuiDrawer-paper": {
+                    backgroundColor: "#2C3E50",
+                    color: "white",
+                  },
+                }}
+              >
+                <List>
+                  <ListItem
+                    button
+                    onClick={closeMenu}
+                    component={Link}
+                    href="#home"
+                  >
+                    <ListItemText primary="Home" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    onClick={closeMenu}
+                    component={Link}
+                    href="#about"
+                  >
+                    <ListItemText primary="About" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    onClick={closeMenu}
+                    component={Link}
+                    href="#working"
+                  >
+                    <ListItemText primary="Working" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    onClick={closeMenu}
+                    component={Link}
+                    href="/chat"
+                  >
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#DEA204",
+                        "&:hover": { backgroundColor: "#A57801" },
+                        color: "#ffffff",
+                        fontFamily: "'Oswald', sans-serif",
+                        fontWeight: "500",
+                        width: "100%",
+                      }}
+                    >
+                      Let&apos;s Start
+                    </Button>
+                  </ListItem>
+                </List>
+              </Drawer>
+            </>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Link href="#home" passHref>
+                <Button
+                  sx={{
+                    color: "#ffffff",
+                    fontFamily: "'Oswald', sans-serif",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    marginRight: "20px",
+                  }}
+                >
+                  Home
+                </Button>
+              </Link>
+              <Link href="#about" passHref>
+                <Button
+                  sx={{
+                    color: "#ffffff",
+                    fontFamily: "'Oswald', sans-serif",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    marginRight: "20px",
+                  }}
+                >
+                  About
+                </Button>
+              </Link>
+              <Link href="/chat" passHref>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#DEA204",
+                    "&:hover": { backgroundColor: "#A57801" },
+                    color: "#ffffff",
+                    fontFamily: "'Oswald', sans-serif",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    marginLeft: "auto",
+                  }}
+                >
+                  Let&apos;s Start
+                </Button>
+              </Link>
+            </Box>
+          )}
+        </Toolbar>
+      </Navbar>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Hero Section */}
+
+      <HeroSection id="home">
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          sx={{
+            fontFamily: "'Oswald', sans-serif",
+            fontWeight: "700",
+            fontSize: { xs: "2.5rem", md: "3.75rem" },
+          }}
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+          Unlock Your Academic Potential with{" "}
+          <span style={{ color: "#F1B22A" }}>RateWise AI</span>
+        </Typography>
+        <Typography
+          variant="h5"
+          component="p"
+          gutterBottom
+          sx={{
+            fontFamily: "'Oswald', sans-serif",
+            fontWeight: "400",
+            fontSize: { xs: "1.25rem", md: "1.5rem" },
+          }}
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          Experience tailored professor recommendations that match your unique
+          academic needs and goals.
+        </Typography>
+        <Link href="/chat">
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#F1B22A",
+              "&:hover": { backgroundColor: "#A57801" },
+              color: "#ffffff",
+              mt: 2,
+              fontFamily: "'Oswald', sans-serif",
+              fontWeight: "500",
+              fontSize: { xs: "14px", md: "16px" },
+            }}
+          >
+            Chat with Our AI Assistant
+          </Button>
+        </Link>
+      </HeroSection>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      {/* About Section */}
+      <AboutSection id="about">
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <AboutContent>
+              <Typography
+                variant="h4"
+                component="h2"
+                gutterBottom
+                sx={{
+                  fontFamily: "'Oswald', sans-serif",
+                  fontWeight: "700",
+                  color: "#34495E",
+                }}
+              >
+                About RateWise AI
+              </Typography>
+              <Typography
+                variant="body1"
+                component="p"
+                gutterBottom
+                sx={{
+                  fontFamily: "'Oswald', sans-serif",
+                  fontWeight: "500",
+                  color: "#565656",
+                }}
+              >
+                {" "}
+                RateWise AI is an innovative, AI-powered assistant specifically
+                designed to guide students in finding the ideal professors for
+                their academic journey. Our platform is built on cutting-edge
+                technology that ensures personalized, accurate, and reliable
+                recommendations tailored to your unique preferences and
+                requirements.
+                <br />
+                <br />
+                Whether you’re searching for a professor with a strong teaching
+                style, deep expertise in a particular subject, or someone highly
+                rated by fellow students, RateWise AI has you covered. The
+                platform leverages advanced Retrieval-Augmented Generation (RAG)
+                technology to sift through a vast database of professor reviews,
+                ratings, and feedback. This allows it to generate
+                recommendations that are not just relevant but also deeply
+                insightful, helping you make informed decisions.
+                <br />
+                <br />
+                RateWise AI is more than just a tool; it’s your academic
+                companion. The AI considers various factors such as teaching
+                methodologies, course content, student engagement, and overall
+                ratings to ensure you get the best match.
+              </Typography>
+            </AboutContent>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <AboutImage src="/image/about.png" alt="Professor Illustration" />
+          </Grid>
+        </Grid>
+      </AboutSection>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* How It Works Section */}
+      <HowItWorksSection id="working">
+        <Typography
+          variant="h4"
+          component="h2"
+          gutterBottom
+          sx={{
+            fontFamily: "'Oswald', sans-serif",
+            fontWeight: "700",
+            color: "#34495E",
+          }}
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          How It Works
+        </Typography>
+        <Grid container spacing={4} justifyContent="center">
+          <Grid item>
+            <CardContainer>
+              <Card>
+                <CardFront>
+                  <NumberCircle>1</NumberCircle>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Ask a Question
+                  </Typography>
+                </CardFront>
+                <CardBack>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Describe what you&apos;re looking for in a professor on
+                    RateWise AI.
+                  </Typography>
+                </CardBack>
+              </Card>
+            </CardContainer>
+          </Grid>
+          <Grid item>
+            <CardContainer>
+              <Card>
+                <CardFront>
+                  <NumberCircle>2</NumberCircle>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Get Recommendations
+                  </Typography>
+                </CardFront>
+                <CardBack>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                      fontSize: "20px",
+                    }}
+                  >
+                    RateWise AI will present the top three professor matches
+                    based on your query.
+                  </Typography>
+                </CardBack>
+              </Card>
+            </CardContainer>
+          </Grid>
+          <Grid item>
+            <CardContainer>
+              <Card>
+                <CardFront>
+                  <NumberCircle>3</NumberCircle>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Make an Informed Choice
+                  </Typography>
+                </CardFront>
+                <CardBack>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    sx={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: "500",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Review the recommendations from RateWise AI and choose the
+                    best professor for you.
+                  </Typography>
+                </CardBack>
+              </Card>
+            </CardContainer>
+          </Grid>
+        </Grid>
+      </HowItWorksSection>
+
+      {/* Footer */}
+      <Footer>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          <Grid item xs={12} md={6}>
+            <Typography variant="body1">
+              &copy; {new Date().getFullYear()} FlashForge Pro. All rights
+              reserved.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "right" }}>
+            <Box
+              display="flex"
+              justifyContent={{ xs: "center", md: "flex-end" }}
+              mt={{ xs: 2, md: 0 }}
+            >
+              <Box mx={2}>
+                <FooterLink
+                  href="https://github.com/Padmaja-Ramesh/RateWise-AI.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github size={24} />
+                </FooterLink>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </Footer>
+    </>
   );
 }
