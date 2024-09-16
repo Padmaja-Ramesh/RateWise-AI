@@ -1,0 +1,242 @@
+{"reviews":[
+    {
+      "florist_name": "Blooming Blossoms",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Emma Thompson",
+          "message": "Beautiful arrangements, but a bit pricey.",
+          "time_stamp": "2024-08-15T14:30:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Petal Paradise",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Michael Chen",
+          "message": "Absolutely stunning wedding bouquet!",
+          "time_stamp": "2024-08-10T09:45:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Green Thumb Florists",
+      "stars": 3,
+      "reviews": [
+        {
+          "client_name": "Sarah Johnson",
+          "message": "Decent service, but flowers didn't last long.",
+          "time_stamp": "2024-08-05T16:20:00Z"
+        }
+      ],
+      "specialist": "garland making"
+    },
+    {
+      "florist_name": "Floral Fantasies",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "David Miller",
+          "message": "Exceptional customer service and beautiful flowers!",
+          "time_stamp": "2024-07-30T11:15:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Rosebud Boutique",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Lisa Garcia",
+          "message": "Lovely roses, but delivery was a bit late.",
+          "time_stamp": "2024-07-25T13:40:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Sunshine Petals",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "James Wilson",
+          "message": "Incredible garlands for our summer party!",
+          "time_stamp": "2024-07-20T10:00:00Z"
+        }
+      ],
+      "specialist": "garland making"
+    },
+    {
+      "florist_name": "Urban Oasis Flowers",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Emily Davis",
+          "message": "Creative arrangements, slightly overpriced.",
+          "time_stamp": "2024-07-15T15:30:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Daisy Chain",
+      "stars": 3,
+      "reviews": [
+        {
+          "client_name": "Robert Brown",
+          "message": "Average quality, but friendly staff.",
+          "time_stamp": "2024-07-10T12:20:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Enchanted Gardens",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Sophie Taylor",
+          "message": "Magical wedding decorations! Highly recommend.",
+          "time_stamp": "2024-07-05T09:10:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Wildflower Wonders",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Daniel Lee",
+          "message": "Unique bouquets with local wildflowers. Love it!",
+          "time_stamp": "2024-06-30T14:50:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Orchid Oasis",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Olivia Martinez",
+          "message": "Stunning orchid arrangements for our office.",
+          "time_stamp": "2024-06-25T11:30:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Garland Gurus",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "William Turner",
+          "message": "Beautiful garlands, but limited flower variety.",
+          "time_stamp": "2024-06-20T16:40:00Z"
+        }
+      ],
+      "specialist": "garland making"
+    },
+    {
+      "florist_name": "Tulip Time",
+      "stars": 3,
+      "reviews": [
+        {
+          "client_name": "Anna Kim",
+          "message": "Nice tulips, but customer service needs improvement.",
+          "time_stamp": "2024-06-15T10:20:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Lily of the Valley",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Christopher White",
+          "message": "Exquisite arrangements for our anniversary dinner!",
+          "time_stamp": "2024-06-10T13:15:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Rustic Blooms",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Rachel Green",
+          "message": "Charming bouquets with a rustic touch.",
+          "time_stamp": "2024-06-05T15:50:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Exotic Petals",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Thomas Baker",
+          "message": "Impressive selection of rare and exotic flowers!",
+          "time_stamp": "2024-05-31T09:30:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Seaside Florals",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Jessica Moore",
+          "message": "Beautiful beach-themed arrangements for our wedding.",
+          "time_stamp": "2024-05-26T12:00:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Garden of Eden",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Andrew Clark",
+          "message": "Breathtaking floral installations for our event!",
+          "time_stamp": "2024-05-21T14:10:00Z"
+        }
+      ],
+      "specialist": "floral arrangement"
+    },
+    {
+      "florist_name": "Blooming Seasons",
+      "stars": 4,
+      "reviews": [
+        {
+          "client_name": "Megan Wright",
+          "message": "Lovely seasonal bouquets, great value for money.",
+          "time_stamp": "2024-05-16T11:45:00Z"
+        }
+      ],
+      "specialist": "bouquet"
+    },
+    {
+      "florist_name": "Floral Fiesta",
+      "stars": 5,
+      "reviews": [
+        {
+          "client_name": "Carlos Rodriguez",
+          "message": "Vibrant and festive garlands for our family celebration!",
+          "time_stamp": "2024-05-11T16:30:00Z"
+        }
+      ],
+      "specialist": "garland making"
+    }
+  ] }
