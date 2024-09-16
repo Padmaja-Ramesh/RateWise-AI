@@ -219,7 +219,6 @@ export default function Home() {
               >
                 <List>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="#home"
