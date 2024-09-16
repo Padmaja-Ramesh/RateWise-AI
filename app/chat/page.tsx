@@ -182,7 +182,6 @@ export default function Chat() {
               >
                 <List>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="/#home"
@@ -190,7 +189,6 @@ export default function Chat() {
                     <ListItemText primary="Home" />
                   </ListItem>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="/#about"
@@ -198,7 +196,6 @@ export default function Chat() {
                     <ListItemText primary="About" />
                   </ListItem>
                   <ListItem
-                    button
                     onClick={closeMenu}
                     component={Link}
                     href="/#working"
